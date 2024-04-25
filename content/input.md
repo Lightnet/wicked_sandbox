@@ -1,9 +1,6 @@
-backlog_post("/// test.lua ///");
-
--- testme = "testtext"
--- return testme
 
 
+```lua
 runProcess(function()
   backlog_post('KEYBOARD_BUTTON_ESCAPE')
   backlog_post(KEYBOARD_BUTTON_ESCAPE)
@@ -19,3 +16,4 @@ runProcess(function()
     end
   end
 end)
+```
