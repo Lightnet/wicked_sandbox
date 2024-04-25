@@ -4,5 +4,7 @@
 runProcess(function()
   -- Wait for Engine update tick
   update()--this is need to update 
-  dofile(script_dir() .. "game.lua")
+  -- local path = RenderPath3D()
+  -- application.SetActivePath(path)
+  -- dofile(script_dir() .. "game.lua")
 end)

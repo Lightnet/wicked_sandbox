@@ -1,4 +1,19 @@
+backlog_post("/////////////////////////////////////");
 
+--package.path = package.path .. ";!\\content\\scripts\\?.lua"
+--package.path = "./content/scripts/?.lua;" .. package.path
+backlog_post("package.path: ",package.path);
+--dofile 'content/scripts/foo.lua'
+local foo = require 'content/scripts/foo'
+--local test = require 'test'
+--backlog_post("///test: ",test);
+--backlog_post("package.path: ",package.path);
+--backlog_post("///test: ",test);
+--backlog_post("///bar: ",bar);
+backlog_post("/////////////////////////////////////");
+backlog_post("///foo: ",foo);
+backlog_post("///test: ",test);
+backlog_post("/////////////////////////////////////");
 
 local scene = GetScene()
 
@@ -12,9 +27,9 @@ runProcess(function()
 
   SetProfilerEnabled(false) -- have a bit more screen space
 
-  cam_entity = scene.Entity_FindByName("camera") -- query the teapot lid object by name
-  cam_component = scene.Component_GetCamera(cam_entity)
-  transform = scene.Component_GetTransform(cam_entity) -- get camera's transform
+  local cam_entity = scene.Entity_FindByName("camera") -- query the camera object by name
+  --cam_component = scene.Component_GetCamera(cam_entity)
+  local transform = scene.Component_GetTransform(cam_entity) -- get camera's transform
   GetCamera().TransformCamera(transform) -- Transform the main camera with transform that you got from camera in the scene
 
   backlog_post("/////////////////////////////////////");

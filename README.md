@@ -21,7 +21,12 @@
 --Editor_Windows.exe
 --config.ini
 --startup.lua - default entry
+--content
+---models
+---scripts
 ```
+
+
 # Set Up Window:
   * https://github.com/turanszkij/WickedEngine
 
