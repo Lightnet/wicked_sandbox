@@ -8,6 +8,9 @@
  - Wicked Engine v0.71.422
  - vscode
 
+# Code Language:
+ * Lua
+
 # Information:
   Just a prototype test build for Wicked Engine. By using the lua script to run application.
 
