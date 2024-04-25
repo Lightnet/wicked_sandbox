@@ -60,6 +60,8 @@ runProcess(function()
       backlog_post("ESC ", os.time())
       --path.RemoveFont(font)
       application.SetActivePath(prevPath)
+      killProcesses()
+      return
     end
     --backlog_post("///",os.time());
     -- if(not backlog_isactive() and input.Press(string.byte('R'))) then
