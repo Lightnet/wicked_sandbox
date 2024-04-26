@@ -7,16 +7,16 @@ runProcess(function()
   backlog_post("init...");
   --backlog_post(os.time());
   update()
-  local entity = CreateEntity()
-  scene.Component_CreateTransform(entity)
-  local object_component = scene.Component_CreateObject(entity)
+  -- local entity = CreateEntity()
+  -- scene.Component_CreateTransform(entity)
+  -- local object_component = scene.Component_CreateObject(entity)
   LoadModel(script_dir() .. "../cube.wiscene")
 
   cube_entity = scene.Entity_FindByName("cube") -- query the teapot lid object by name
   transform_component = scene.Component_GetTransform(cube_entity)
   rest_matrix = transform_component.GetMatrix()
 
-  local t = 0
+  -- local t = 0
 
   while true do
 
