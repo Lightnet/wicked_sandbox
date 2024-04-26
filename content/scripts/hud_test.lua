@@ -30,7 +30,6 @@ runProcess(function()
       path.RemoveFont(font)
 		end
   end
-
 end)
 
 

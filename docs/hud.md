@@ -1,10 +1,39 @@
 
 # HUD Information:
-  Note lua does not have UI. c/c++ has ui.
+  Note lua does not have UI.
 
+```lua
+local path = application.GetActivePath()
 
+sprite_button = Sprite(script_dir() .. "../ui/kenney_ui-pack/blue_button07.png")
+local fx = sprite_button.GetParams()
+fx.SetPos(Vector(0,0))
+backlog_post("fx.GetSize: ", fx.GetSize());
+sprite_button.SetParams(fx)
+path.AddSprite(sprite_button)
+```
+Result of width and height is zero.
+```lua
+local path = application.GetActivePath()
+sprite_button = Sprite(script_dir() .. "../ui/kenney_ui-pack/blue_button07.png")
+local params = ImageParams(0,0,64,64)
+sprite_button.SetParams(params)
+path.AddSprite(sprite_button)
+```
+  works!
 
+```lua
+local path = application.GetActivePath()
+sprite_button = Sprite(script_dir() .. "../ui/kenney_ui-pack/blue_button07.png")
+local fx = sprite_button.GetParams()
+fx.SetPos(Vector(0,0))
+fx.SetSize(Vector(64,64))
+--backlog_post("fx.GetSize: ", fx.GetSize());
+sprite_button.SetParams(fx)
+path.AddSprite(sprite_button)
 
+```
+  works!
 
 
 https://discord.com/channels/602811659224088577/602811659224088583/1146619635219832975
