@@ -3,6 +3,7 @@
   create button class
 ]]
 backlog_post("/// INIT hud.lua ///");
+-- https://github.com/turanszkij/WickedEngine/blob/master/Content/Documentation/ScriptingAPI-Documentation.md
 -- https://www.lua.org/pil/16.1.html
 local button = {
   hover_color = Vector(0.6,0.6,0.6,1),
@@ -12,7 +13,8 @@ local button = {
   x = 0,
   y = 0,
   width = 32,
-  height = 32
+  height = 32,
+  fn = nil
 }
 
 function button:new(o)
@@ -36,6 +38,7 @@ function button:setup(path,x,y,width,height)
   self.y = y
   self.width = width
   self.height = height
+  self.path = path
   self.btn_sprite = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
   local fx = self.btn_sprite.GetParams()
   fx.SetPos(Vector(self.x,self.y)) --position x,y
@@ -43,7 +46,7 @@ function button:setup(path,x,y,width,height)
   fx.SetSize(Vector(self.width,self.height)) -- width, height
   fx.SetColor(self.hover_color) --color r,g,b,alpha ???
   self.btn_sprite.SetParams(fx) -- set sprite image
-  path.AddSprite(self.btn_sprite)
+  self.path.AddSprite(self.btn_sprite)
   return self
 end
 
@@ -57,7 +60,13 @@ function button:update()
     --backlog_post("OVER ?")
     local fx = self.btn_sprite.GetParams()
 
-    if input.Down( MOUSE_BUTTON_LEFT ) then
+    if input.Press( MOUSE_BUTTON_LEFT ) then--check press to prevent loop call
+      if self.fn then
+        self.fn()
+      end
+    end
+
+    if input.Down( MOUSE_BUTTON_LEFT ) then --check if mouse is down while loop
       backlog_post("MOUSE_BUTTON_LEFT")
       fx.SetColor(self.press_color)
     else
@@ -73,6 +82,22 @@ function button:update()
   end
 end
 
+function button:func(_fn)
+  self.fn = _fn
+end
+
+function button:show()
+  --self.btn_sprite
+end
+
+function button:hide()
+
+end
+
+function button:destroy()
+  self.path.RemoveSprite(self.btn_sprite)
+end
+
 
 local path = application.GetActivePath()
 
@@ -81,6 +106,10 @@ btn_test:setup(path,0,0,32,32)
 
 local btn_test2 = button:new()
 btn_test2:setup(path,0,64,32,32)
+btn_test2:func(function()
+  backlog_post("//// button...");
+end)
+
 
 runProcess(function()
   backlog_post("/// INIT runProcess FN ///");
