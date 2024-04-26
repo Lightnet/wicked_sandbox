@@ -2,6 +2,23 @@
 # HUD Information:
   Note lua does not have UI.
 
+# Design:
+
+```
+  sprite
+  path render
+
+
+  -create
+  -panel 9 sprite rect
+  -
+
+  -destroy
+
+```
+
+# Test builds:
+
 ```lua
 local path = application.GetActivePath()
 
@@ -45,8 +62,8 @@ font.SetText("Loading...")
 font.SetSize(40)
 local ts = font.TextSize()
 font.SetPos(Vector(
-    application.GetCanvas().GetLogicalWidth() * .5 - ts.X * .5,
-    application.GetCanvas().GetLogicalHeight() * .5 - ts.Y * .5
+  application.GetCanvas().GetLogicalWidth() * .5 - ts.X * .5,
+  application.GetCanvas().GetLogicalHeight() * .5 - ts.Y * .5
 ))
 ls.AddFont(font)
 
