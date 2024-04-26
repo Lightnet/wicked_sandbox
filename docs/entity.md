@@ -1,11 +1,15 @@
 
-
+```lua
+Vector(0, 0.5, 0)
+Vector(1)
+Vector()
+```
 
 ```lua
 scene = GetScene()
 
 LoadModel(script_dir() .. "../cube.wiscene")
-cube_entity = scene.Entity_FindByName("cube") -- query the teapot lid object by name
+cube_entity = scene.Entity_FindByName("cube") -- query the object by name
 transform_component = scene.Component_GetTransform(cube_entity)
 rest_matrix = transform_component.GetMatrix() --save transform data for reset
 
@@ -20,12 +24,6 @@ transform_component.Translate(lookDir)
 local cube_entity = LoadModel(script_dir() .. "../cube.wiscene")
 transform_component = scene.Component_GetTransform(cube_entity)
 rest_matrix = transform_component.GetMatrix() --save transform data for reset
-```
-
-```lua
-Vector(0, 0.5, 0)
-Vector(1)
-Vector()
 ```
 
 ```lua
