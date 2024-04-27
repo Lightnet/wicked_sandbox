@@ -111,7 +111,6 @@ local panel = {
   hover_color = Vector(0.6,0.6,0.6,1),
   out_color = Vector(0.3,0.3,0.3,1),
   press_color = Vector(0.8,0.8,0.8,1),
-  --panel_sprite = nil,
   panel_top_left = nil, --image corner
   panel_top_middle = nil, --image middle
   panel_top_right = nil, --image corner
@@ -127,6 +126,7 @@ local panel = {
   height = 48,
   min_width = 48,
   min_height = 48,
+  corner_size = 12,
   fn = nil
 }
 
@@ -135,7 +135,6 @@ function panel:new(o)
     hover_color = Vector(0.6,0.6,0.6,1),
     out_color = Vector(0.3,0.3,0.3,1),
     press_color = Vector(0.8,0.8,0.8,1),
-    --panel_sprite = nil, --image
     panel_top_left = nil, --image corner
     panel_top_middle = nil, --image middle
     panel_top_right = nil, --image corner
@@ -151,6 +150,7 @@ function panel:new(o)
     height = 48,
     min_width = 48,
     min_height = 48,
+    corner_size = 12,
     fn=nil
   }   -- create object if user does not provide 
   setmetatable(o, self)
@@ -225,25 +225,43 @@ end
 function panel:resize()
   local min_size = self.width < self.min_width or self.height < self.min_height
   if min_size then
-    backlog_post("/// MIN SIZE REACH ///");
+    --backlog_post("/// MIN SIZE REACH ///");
     return
   end
-  backlog_post("/// RESIZE ///");
-  local top_width =  self.width - 12*2
-  local left_height =  self.height - 12*2
-
+  --backlog_post("/// RESIZE ///");
+  local top_width =  self.width - self.corner_size*2
+  local left_height =  self.height - self.corner_size*2
+  --self.corner_size
   setPos(self.panel_top_left, self.x, self.y)
-  setPosSize(self.panel_left, self.x, self.y+12, 12 ,left_height)
-  setPos(self.panel_bottom_left, self.x, self.y+12+left_height)
+  setPosSize(self.panel_left, self.x, self.y+self.corner_size, self.corner_size ,left_height)
+  setPos(self.panel_bottom_left, self.x, self.y+self.corner_size+left_height)
 
-  setPosSize(self.panel_top_middle, self.x+12, self.y, top_width , 12)
-  setPosSize(self.panel_center, self.x+12, self.y+12, top_width , left_height)
-  setPosSize(self.panel_bottom_middle, self.x+12, self.y+12+left_height, top_width , 12)
+  setPosSize(self.panel_top_middle, self.x+self.corner_size, self.y, top_width , self.corner_size)
+  setPosSize(self.panel_center, self.x+self.corner_size, self.y+self.corner_size, top_width , left_height)
+  setPosSize(self.panel_bottom_middle, self.x+self.corner_size, self.y+self.corner_size+left_height, top_width , self.corner_size)
 
-  setPos(self.panel_top_right, self.x+12+top_width, self.y)
-  setPosSize(self.panel_right, self.x+12+top_width, self.y+12, 12 , left_height)
-  setPos(self.panel_bottom_right, self.x+12+top_width, self.y+12+left_height)
-  
+  setPos(self.panel_top_right, self.x+self.corner_size+top_width, self.y)
+  setPosSize(self.panel_right, self.x+self.corner_size+top_width, self.y+self.corner_size, self.corner_size , left_height)
+  setPos(self.panel_bottom_right, self.x+self.corner_size+top_width, self.y+self.corner_size+left_height)
+
+end
+
+function panel:SetHidden(_bool)
+  self.panel_top_left.SetHidden(_bool)
+  self.panel_left.SetHidden(_bool)
+  self.panel_bottom_left.SetHidden(_bool)
+
+  self.panel_top_middle.SetHidden(_bool)
+  self.panel_center.SetHidden(_bool)
+  self.panel_bottom_middle.SetHidden(_bool)
+
+  self.panel_top_right.SetHidden(_bool)
+  self.panel_right.SetHidden(_bool)
+  self.panel_bottom_right.SetHidden(_bool)
+end
+
+function panel:func(_fn)
+  self.fn = _fn
 end
 
 function panel:setup(path,x,y,width,height)
@@ -272,7 +290,7 @@ local path = application.GetActivePath()
 -- end)
 
 local panel_test = panel:new()
-panel_test:setup(path,0,0,128,128)
+panel_test:setup(path,0,0,200,200)
 
 
 runProcess(function()
