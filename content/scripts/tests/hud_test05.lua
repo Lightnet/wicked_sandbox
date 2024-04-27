@@ -150,91 +150,89 @@ function panel:setup(path,x,y,width,height)
   self.panel_sprite = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
   
   local fx = nil
-  -- fx = self.panel_sprite.GetParams()
+  local fx1 = nil
+  fx = self.panel_sprite.GetParams()
+  --fx1 = self.panel_sprite.GetParams()
+  -- fx.SetPos(Vector(0,64))
   -- fx.SetSize(Vector(48,48))
-  --self.panel_sprite.SetParams(fx)
-  --self.path.AddSprite(self.panel_sprite)
+  -- self.panel_sprite.SetParams(fx)
+  -- self.path.AddSprite(self.panel_sprite)
 
-  self.panel_top_left = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_top_left.GetParams()
-  fx.SetSize(Vector(12,12))
-  fx.EnableDrawRect(Vector(0, 0, 12, 12)) --crop image
-  self.panel_top_left.SetParams(fx)
-  self.path.AddSprite(self.panel_top_left)
+  -- local panel_top_left = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx.EnableDrawRect(Vector(0, 0, 12, 12)) --crop image
+  -- fx.SetPos(Vector(0,0))
+  -- fx.SetSize(Vector(12,12))
+  -- panel_top_left.SetParams(fx)
+  -- self.path.AddSprite(panel_top_left)
+  -- self.panel_top_left = panel_top_left
 
-  self.panel_left = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  --self.panel_top_left = Sprite()
-  fx = self.panel_left.GetParams()
-  fx.SetPos(Vector(0,12))
-  fx.SetSize(Vector(12,24))
-  fx.EnableDrawRect(Vector(0, 12, 12, 24)) --crop image
-  self.panel_left.SetParams(fx)
-  self.path.AddSprite(self.panel_left)
+  -- self.panel_left = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- --self.panel_top_left = Sprite()
+  -- fx = self.panel_left.GetParams()
+  -- fx.SetPos(Vector(0,12))
+  -- fx.SetSize(Vector(12,24))
+  -- fx.EnableDrawRect(Vector(0, 12, 12, 24)) --crop image
+  -- self.panel_left.SetParams(fx)
+  -- self.path.AddSprite(self.panel_left)
 
-  self.panel_bottom_left = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_bottom_left.GetParams()
-  fx.SetPos(Vector(0,36))
-  fx.SetSize(Vector(12,12))
-  fx.EnableDrawRect(Vector(0, 36, 12, 12)) --crop image
-  self.panel_bottom_left.SetParams(fx)
-  self.path.AddSprite(self.panel_bottom_left)
+  -- self.panel_bottom_left = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx = self.panel_bottom_left.GetParams()
+  -- fx.SetPos(Vector(0,36))
+  -- fx.SetSize(Vector(12,12))
+  -- fx.EnableDrawRect(Vector(0, 36, 12, 12)) --crop image
+  -- self.panel_bottom_left.SetParams(fx)
+  -- self.path.AddSprite(self.panel_bottom_left)
 
-  self.panel_top_middle = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_top_middle.GetParams()
-  fx.SetPos(Vector(12,0))
-  fx.SetSize(Vector(24,12))
-  fx.EnableDrawRect(Vector(12, 0, 24, 12)) --crop image
-  self.panel_top_middle.SetParams(fx)
-  self.path.AddSprite(self.panel_top_middle)
+  -- self.panel_top_middle = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx = self.panel_top_middle.GetParams()
+  -- fx.SetPos(Vector(12,0))
+  -- fx.SetSize(Vector(24,12))
+  -- fx.EnableDrawRect(Vector(12, 0, 24, 12)) --crop image
+  -- self.panel_top_middle.SetParams(fx)
+  -- self.path.AddSprite(self.panel_top_middle)
 
-  self.panel_center = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_center.GetParams()
-  fx.SetPos(Vector(12,12))
-  fx.SetSize(Vector(24,24))
-  fx.EnableDrawRect(Vector(12, 12, 24, 24)) --crop image
-  self.panel_center.SetParams(fx)
-  self.path.AddSprite(self.panel_center)
+  -- self.panel_center = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx = self.panel_center.GetParams()
+  -- fx.SetPos(Vector(12,12))
+  -- fx.SetSize(Vector(24,24))
+  -- fx.EnableDrawRect(Vector(12, 12, 24, 24)) --crop image
+  -- self.panel_center.SetParams(fx)
+  -- self.path.AddSprite(self.panel_center)
 
-  self.panel_bottom_middle = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_bottom_middle.GetParams()
-  fx.SetPos(Vector(12,36))
-  fx.SetSize(Vector(24,12))
-  fx.EnableDrawRect(Vector(12, 36, 24, 12)) --crop image
-  self.panel_bottom_middle.SetParams(fx)
-  self.path.AddSprite(self.panel_bottom_middle)
+  -- self.panel_bottom_middle = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx = self.panel_bottom_middle.GetParams()
+  -- fx.SetPos(Vector(12,36))
+  -- fx.SetSize(Vector(24,12))
+  -- fx.EnableDrawRect(Vector(12, 36, 24, 12)) --crop image
+  -- self.panel_bottom_middle.SetParams(fx)
+  -- self.path.AddSprite(self.panel_bottom_middle)
 
-  self.panel_top_right = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_top_right.GetParams()
-  fx.SetPos(Vector(36,0))
-  fx.SetSize(Vector(12,12))
-  fx.EnableDrawRect(Vector(36, 0, 12, 12)) --crop image
-  self.panel_top_right.SetParams(fx)
-  self.path.AddSprite(self.panel_top_right)
+  -- self.panel_top_right = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx = self.panel_top_right.GetParams()
+  -- fx.SetPos(Vector(36,0))
+  -- fx.SetSize(Vector(12,12))
+  -- fx.EnableDrawRect(Vector(36, 0, 12, 12)) --crop image
+  -- self.panel_top_right.SetParams(fx)
+  -- self.path.AddSprite(self.panel_top_right)
 
-  self.panel_right = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_right.GetParams()
-  fx.SetPos(Vector(36,12))
-  fx.SetSize(Vector(12,24))
-  fx.EnableDrawRect(Vector(36, 12, 12, 24)) --crop image
-  self.panel_right.SetParams(fx)
-  self.path.AddSprite(self.panel_right)
+  -- self.panel_right = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx = self.panel_right.GetParams()
+  -- fx.SetPos(Vector(36,12))
+  -- fx.SetSize(Vector(12,24))
+  -- fx.EnableDrawRect(Vector(36, 12, 12, 24)) --crop image
+  -- self.panel_right.SetParams(fx)
+  -- self.path.AddSprite(self.panel_right)
 
-  self.panel_bottom_right = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  fx = self.panel_bottom_right.GetParams()
-  fx.SetPos(Vector(36,36))
-  fx.SetSize(Vector(12,12))
-  fx.EnableDrawRect(Vector(36, 36, 12, 12)) --crop image
-  self.panel_bottom_right.SetParams(fx)
-  self.path.AddSprite(self.panel_bottom_right)
-
-  
+  -- self.panel_bottom_right = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  -- fx = self.panel_bottom_right.GetParams()
+  -- fx.SetPos(Vector(36,36))
+  -- fx.SetSize(Vector(12,12))
+  -- fx.EnableDrawRect(Vector(36, 36, 12, 12)) --crop image
+  -- self.panel_bottom_right.SetParams(fx)
+  -- self.path.AddSprite(self.panel_bottom_right)
 
   return self
 end
-
-
-
-
 
 local path = application.GetActivePath()
 
@@ -254,6 +252,33 @@ panel_test:setup(path,0,0,32,32)
 
 runProcess(function()
   backlog_post("/// INIT runProcess FN ///");
+
+
+  local panel_top_left = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  local fx = panel_top_left.GetParams()
+  fx.EnableDrawRect(Vector(0, 0, 24, 24)) --crop image
+  -- fx.SetPos(Vector(0,0))
+  fx.SetSize(Vector(48,48))
+  panel_top_left.SetParams(fx)
+  path.AddSprite(panel_top_left)
+  --panel_top_left = panel_top_left
+
+  --local panel_bottom_right = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  local panel_bottom_right = Sprite()
+  local fx1 = panel_top_left.GetParams()
+  --local fx1 = panel_bottom_right.GetParams()
+  fx1.EnableDrawRect(Vector(0, 0, 24, 24)) --crop image
+  fx1.SetPos(Vector(0,36))
+  fx1.SetSize(Vector(48,48))
+  
+  --panel_bottom_right.SetParams(fx1)
+  panel_bottom_right.SetParams(fx1)
+
+  path.AddSprite(panel_bottom_right)
+  --fail to copy texture2d
+  
+
+
 
   local help_text = ""
   help_text = help_text .. "Wicked Engine sample script\n"

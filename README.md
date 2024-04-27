@@ -1,6 +1,6 @@
 # Project Name: Wicked Sandbox
 
-# license: MIT
+# License: MIT
 
 # Created By: Lightnet
 
@@ -23,6 +23,7 @@
 # Layout:
 ```
 -project folder
+--libraries <- file.dll?
 --Editor_Windows.exe
 --config.ini
 --startup.lua - default entry
@@ -35,7 +36,7 @@
  - Tests
    - [ ] HUD
    - [ ] controller
-   - [ ] module packge ui
+   - [ ] ui package
    - [ ] physics
    - [ ] raycast blocks
    - [ ] create object
@@ -51,3 +52,4 @@
 
 # Links:
  * https://github.com/turanszkij/WickedEngine
+

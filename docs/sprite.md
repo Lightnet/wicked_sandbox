@@ -34,3 +34,4 @@ fx.SetColor(Vector(0,1,0.5,1))
 sprite2.SetParams(fx) --set sprite data
 path.AddSprite(sprite2) -- 2 texture image
 ```
+does not work for some reason...
