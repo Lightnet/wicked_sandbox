@@ -86,17 +86,23 @@ function button:func(_fn)
   self.fn = _fn
 end
 
+function button:SetHidden(_bool)
+  self.btn_sprite.SetHidden(_bool)
+end
+
 function button:show()
-  --self.btn_sprite
+  self.btn_sprite.SetHidden(false)
 end
 
 function button:hide()
-
+  self.btn_sprite.SetHidden(true)
 end
 
 function button:destroy()
   self.path.RemoveSprite(self.btn_sprite)
 end
+
+--///////////////////////////////////////////////
 
 
 local path = application.GetActivePath()
@@ -108,6 +114,7 @@ local btn_test2 = button:new()
 btn_test2:setup(path,0,64,32,32)
 btn_test2:func(function()
   backlog_post("//// button...");
+  btn_test:hide()
 end)
 
 
