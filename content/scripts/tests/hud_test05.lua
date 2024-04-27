@@ -108,11 +108,22 @@ local panel = {
   hover_color = Vector(0.6,0.6,0.6,1),
   out_color = Vector(0.3,0.3,0.3,1),
   press_color = Vector(0.8,0.8,0.8,1),
-  panel_sprite = nil,
+  --panel_sprite = nil,
+  panel_top_left = nil, --image corner
+  panel_top_middle = nil, --image middle
+  panel_top_right = nil, --image corner
+  panel_bottom_right = nil, --image corner
+  panel_bottom_left = nil, --image corner
+  panel_bottom_middle = nil, --image middle
+  panel_right = nil, --image right
+  panel_left = nil, --image left
+  panel_center = nil, --image center
   x = 0,
   y = 0,
-  width = 32,
-  height = 32,
+  width = 48,
+  height = 48,
+  min_width = 48,
+  min_height = 48,
   fn = nil
 }
 
@@ -121,7 +132,7 @@ function panel:new(o)
     hover_color = Vector(0.6,0.6,0.6,1),
     out_color = Vector(0.3,0.3,0.3,1),
     press_color = Vector(0.8,0.8,0.8,1),
-    panel_sprite = nil, --image
+    --panel_sprite = nil, --image
     panel_top_left = nil, --image corner
     panel_top_middle = nil, --image middle
     panel_top_right = nil, --image corner
@@ -133,8 +144,11 @@ function panel:new(o)
     panel_center = nil, --image center
     x = 0,
     y = 0,
-    width = 32,
-    height = 32
+    width = 48,
+    height = 48,
+    min_width = 48,
+    min_height = 48,
+    fn = nil
   }   -- create object if user does not provide 
   setmetatable(o, self)
   self.__index = self

@@ -111,11 +111,22 @@ local panel = {
   hover_color = Vector(0.6,0.6,0.6,1),
   out_color = Vector(0.3,0.3,0.3,1),
   press_color = Vector(0.8,0.8,0.8,1),
-  panel_sprite = nil,
+  --panel_sprite = nil,
+  panel_top_left = nil, --image corner
+  panel_top_middle = nil, --image middle
+  panel_top_right = nil, --image corner
+  panel_bottom_right = nil, --image corner
+  panel_bottom_left = nil, --image corner
+  panel_bottom_middle = nil, --image middle
+  panel_right = nil, --image right
+  panel_left = nil, --image left
+  panel_center = nil, --image center
   x = 0,
   y = 0,
-  width = 32,
-  height = 32,
+  width = 48,
+  height = 48,
+  min_width = 48,
+  min_height = 48,
   fn = nil
 }
 
@@ -124,7 +135,7 @@ function panel:new(o)
     hover_color = Vector(0.6,0.6,0.6,1),
     out_color = Vector(0.3,0.3,0.3,1),
     press_color = Vector(0.8,0.8,0.8,1),
-    panel_sprite = nil, --image
+    --panel_sprite = nil, --image
     panel_top_left = nil, --image corner
     panel_top_middle = nil, --image middle
     panel_top_right = nil, --image corner
@@ -136,14 +147,18 @@ function panel:new(o)
     panel_center = nil, --image center
     x = 0,
     y = 0,
-    width = 32,
-    height = 32
+    width = 48,
+    height = 48,
+    min_width = 48,
+    min_height = 48,
+    fn=nil
   }   -- create object if user does not provide 
   setmetatable(o, self)
   self.__index = self
   return o
 end
 
+--set position, size, reat
 function setPosRect(_sprite, x, y, width, height)
   fx = _sprite.GetParams()
   fx.EnableDrawRect(Vector(x, y, width, height)) --crop image
@@ -152,13 +167,21 @@ function setPosRect(_sprite, x, y, width, height)
   _sprite.SetParams(fx)
   --return _sprite
 end
+--set position
+function setPos(_sprite, x, y)
+  fx = _sprite.GetParams()
+  fx.SetPos(Vector(x,y))
+  _sprite.SetParams(fx)
+end
+--set position and size
+function setPosSize(_sprite, x, y, width, height)
+  fx = _sprite.GetParams()
+  fx.SetPos(Vector(x,y))
+  fx.SetSize(Vector(width,height))
+  _sprite.SetParams(fx)
+end
 
-function panel:setup(path,x,y,width,height)
-  self.x = x
-  self.y = y
-  self.width = width
-  self.height = height
-  self.path = path
+function panel:setup_nine_image_grid()
   local fileImage = "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png"
   
   local fx = nil
@@ -197,6 +220,41 @@ function panel:setup(path,x,y,width,height)
   self.panel_bottom_right = Sprite(script_dir() .. fileImage)
   setPosRect(self.panel_bottom_right, 36, 36, 12, 12)
   self.path.AddSprite(self.panel_bottom_right)
+end
+
+function panel:resize()
+  local min_size = self.width < self.min_width or self.height < self.min_height
+  if min_size then
+    backlog_post("/// MIN SIZE REACH ///");
+    return
+  end
+  backlog_post("/// RESIZE ///");
+  local top_width =  self.width - 12*2
+  local left_height =  self.height - 12*2
+
+  setPos(self.panel_top_left, self.x, self.y)
+  setPosSize(self.panel_left, self.x, self.y+12, 12 ,left_height)
+  setPos(self.panel_bottom_left, self.x, self.y+12+left_height)
+
+  setPosSize(self.panel_top_middle, self.x+12, self.y, top_width , 12)
+  setPosSize(self.panel_center, self.x+12, self.y+12, top_width , left_height)
+  setPosSize(self.panel_bottom_middle, self.x+12, self.y+12+left_height, top_width , 12)
+
+  setPos(self.panel_top_right, self.x+12+top_width, self.y)
+  setPosSize(self.panel_right, self.x+12+top_width, self.y+12, 12 , left_height)
+  setPos(self.panel_bottom_right, self.x+12+top_width, self.y+12+left_height)
+  
+end
+
+function panel:setup(path,x,y,width,height)
+  self.path = path
+  self.x = x
+  self.y = y
+  self.width = width
+  self.height = height
+  
+  self:setup_nine_image_grid()
+  self:resize()
 
   return self
 end
@@ -214,7 +272,7 @@ local path = application.GetActivePath()
 -- end)
 
 local panel_test = panel:new()
-panel_test:setup(path,0,0,32,32)
+panel_test:setup(path,0,0,128,128)
 
 
 runProcess(function()
