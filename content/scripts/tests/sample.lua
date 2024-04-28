@@ -1,4 +1,4 @@
-print("main hello world")
+
 -- Set a rendering path for the application
 -- path = RenderPath3D;
 -- application.SetActivePath(path);    -- "application" is created automatically by wi::Application

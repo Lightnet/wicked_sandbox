@@ -1,3 +1,6 @@
+--[[
+
+]]
 --this will loop if attach to script component.
 --once loaded to scene it save to scene file.
 backlog_post('/// script_com.lua',os.time())

@@ -15,7 +15,7 @@ Configuration properties:
 ----wickedengine_windows.lib
 ----%(AdditionalDependnes)
 ```
- wrong?
+ wrong? checked the video.
 
 
 # Template_Windows Default:

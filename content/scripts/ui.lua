@@ -6,8 +6,12 @@
   create button class
 ]]
 backlog_post("/// INIT hud.lua ///");
+
 -- https://github.com/turanszkij/WickedEngine/blob/master/Content/Documentation/ScriptingAPI-Documentation.md
 -- https://www.lua.org/pil/16.1.html
+
+local ui = {}
+
 local button = {
   hover_color = Vector(0.6,0.6,0.6,1),
   out_color = Vector(0.3,0.3,0.3,1),
@@ -42,7 +46,9 @@ function button:setup(path,x,y,width,height)
   self.width = width
   self.height = height
   self.path = path
-  self.btn_sprite = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  backlog_post(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  --self.btn_sprite = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  self.btn_sprite = Sprite( "./content/ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
   local fx = self.btn_sprite.GetParams()
   fx.SetPos(Vector(self.x,self.y)) --position x,y
   --fx.EnableDrawRect(Vector(0, 0, 16, 16)) --crop image
@@ -277,7 +283,17 @@ function panel:setup(path,x,y,width,height)
   return self
 end
 
-local path = application.GetActivePath()
+
+ui.button = button
+ui.panel = panel
+
+return ui
+-- return {
+--   button,
+--   panel
+-- }
+
+-- local path = application.GetActivePath()
 
 -- local btn_test = button:new()
 -- btn_test:setup(path,0,0,32,32)
@@ -289,32 +305,32 @@ local path = application.GetActivePath()
 --   btn_test:hide()
 -- end)
 
-local panel_test = panel:new()
-panel_test:setup(path,0,0,200,200)
+-- local panel_test = panel:new()
+-- panel_test:setup(path,0,0,200,200)
 
 
-runProcess(function()
-  backlog_post("/// INIT runProcess FN ///");
+-- runProcess(function()
+--   backlog_post("/// INIT runProcess FN ///");
 
-  local help_text = ""
-  help_text = help_text .. "Wicked Engine sample script\n"
-  local font = SpriteFont(help_text);
-	font.SetSize(16)
-	--font.SetPos(Vector(10, GetScreenHeight() - 10))
-	font.SetPos(Vector(10, 100))
-	font.SetAlign(WIFALIGN_LEFT, WIFALIGN_BOTTOM)
-	font.SetColor(0xFFADA3FF)
-	font.SetShadowColor(Vector(0,0,0,1))
-	path.AddFont(font)
+--   local help_text = ""
+--   help_text = help_text .. "Wicked Engine sample script\n"
+--   local font = SpriteFont(help_text);
+-- 	font.SetSize(16)
+-- 	--font.SetPos(Vector(10, GetScreenHeight() - 10))
+-- 	font.SetPos(Vector(10, 100))
+-- 	font.SetAlign(WIFALIGN_LEFT, WIFALIGN_BOTTOM)
+-- 	font.SetColor(0xFFADA3FF)
+-- 	font.SetShadowColor(Vector(0,0,0,1))
+-- 	path.AddFont(font)
 
-  while true do
-    update()
-    -- btn_test:update()
-    -- btn_test2:update()
+--   while true do
+--     update()
+--     -- btn_test:update()
+--     -- btn_test2:update()
 
-    if(not backlog_isactive() and input.Press(string.byte('R'))) then
-      path.RemoveFont(font)
-      path.RemoveSprite(sprite_panel)
-		end
-  end
-end)
+--     if(not backlog_isactive() and input.Press(string.byte('R'))) then
+--       path.RemoveFont(font)
+--       path.RemoveSprite(sprite_panel)
+-- 		end
+--   end
+-- end)
