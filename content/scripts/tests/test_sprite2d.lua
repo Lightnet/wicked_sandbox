@@ -9,7 +9,7 @@ runProcess(function()
 
   local btn_sprite = Sprite( "./content/ui/kenney_ui-pack/PNG/grey_button07.png")
   local fx = btn_sprite.GetParams()
-  fx.SetPos(Vector(self.x,self.y)) --position x,y
+  fx.SetPos(Vector(0,0)) --position x,y
   --fx.EnableDrawRect(Vector(0, 0, 16, 16)) --crop image
   fx.SetSize(Vector(48,48)) -- width, height
   btn_sprite.SetParams(fx) -- set sprite image

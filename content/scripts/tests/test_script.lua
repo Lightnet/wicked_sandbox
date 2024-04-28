@@ -1,4 +1,5 @@
-backlog_post("/// INIT test_run.lua ///");
+--template
+backlog_post("/// INIT test_script.lua ///");
 
 runProcess(function()
   backlog_post("/// INIT runProcess FN ///");

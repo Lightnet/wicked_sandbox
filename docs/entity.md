@@ -6,6 +6,20 @@ Vector()
 ```
 
 ```lua
+
+local scene = GetScene()
+local path = application.GetActivePath()
+
+local camera_entity = CreateEntity()
+scene.Component_CreateName(camera_entity).SetName("camera")
+scene.Component_CreateTransform(camera_entity)
+scene.Component_CreateCamera(camera_entity)
+```
+
+
+
+
+```lua
 scene = GetScene()
 
 LoadModel(script_dir() .. "../cube.wiscene")
