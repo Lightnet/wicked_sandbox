@@ -1,11 +1,10 @@
-
-
-
+--[[
+  party working for camera zoom.
+  direction movement still need work.
+]]
 
 local scene = GetScene()
-
 -- from wicked example code character_controller.lua
-
 local function Character(model_entity, start_position, face, controllable, anim_scene)
   local self = {
 		model = INVALID_ENTITY,

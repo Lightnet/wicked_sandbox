@@ -6,7 +6,7 @@ scene = GetScene()
 runProcess(function()
   backlog_post("init...");
   update()
-  LoadModel(script_dir() .. "../cube.wiscene")
+  LoadModel(script_dir() .. "../scenes/cube.wiscene")
 
   cube_entity = scene.Entity_FindByName("cube") -- query the teapot lid object by name
   transform_component = scene.Component_GetTransform(cube_entity)

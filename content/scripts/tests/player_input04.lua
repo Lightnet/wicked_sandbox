@@ -8,7 +8,7 @@ scene = GetScene()
 runProcess(function()
   backlog_post("init...");
   update()
-  local cube_entity = LoadModel(script_dir() .. "../cube.wiscene")
+  local cube_entity = LoadModel(script_dir() .. "../scenes/cube.wiscene")
   transform_component = scene.Component_GetTransform(cube_entity)
   rest_matrix = transform_component.GetMatrix()
 

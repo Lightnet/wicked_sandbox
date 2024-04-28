@@ -7,6 +7,3 @@ runProcess(function()
     update() --need to call for wicked engine to update snyc.
   end
 end)
-
-
-
