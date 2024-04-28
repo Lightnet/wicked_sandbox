@@ -17,6 +17,8 @@ local button = {
   out_color = Vector(0.3,0.3,0.3,1),
   press_color = Vector(0.8,0.8,0.8,1),
   btn_sprite = nil,
+  label_text = nil,
+  font_size = 16,
   x = 0,
   y = 0,
   width = 32,
@@ -46,9 +48,9 @@ function button:setup(path,x,y,width,height)
   self.width = width
   self.height = height
   self.path = path
-  backlog_post(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  --backlog_post(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
   --self.btn_sprite = Sprite(script_dir() .. "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
-  self.btn_sprite = Sprite( "./content/ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png")
+  self.btn_sprite = Sprite( "./content/ui/kenney_ui-pack/PNG/grey_button07.png")
   local fx = self.btn_sprite.GetParams()
   fx.SetPos(Vector(self.x,self.y)) --position x,y
   --fx.EnableDrawRect(Vector(0, 0, 16, 16)) --crop image
@@ -57,6 +59,32 @@ function button:setup(path,x,y,width,height)
   self.btn_sprite.SetParams(fx) -- set sprite image
   self.path.AddSprite(self.btn_sprite)
   return self
+end
+
+function button:text(_text)
+  --need to check 
+  if not self.label_text then --if not exist
+    self.label_text = SpriteFont(_text);
+    self.label_text.SetSize(self.font_size)
+    self.path.AddFont(self.label_text)
+    local text_rect = self.label_text.TextSize()
+    self.label_text.SetPos(Vector(
+      self.x + (self.width * .5) - (text_rect.X *.5), 
+      self.y + (self.height * .5) - (text_rect.Y *.5)
+    ))
+    --self.label_text.SetAlign(WIFALIGN_LEFT, WIFALIGN_BOTTOM)
+  	self.label_text.SetColor(0xFFADA3FF)
+  	--self.label_text.SetShadowColor(Vector(0,0,0,1))
+    return
+  end
+  self.label_text.SetText(_text)
+  local text_rect = self.label_text.TextSize()
+  self.label_text.SetPos(Vector(
+    self.x + (self.width * .5) - (text_rect.X *.5), 
+    self.y + (self.height * .5) - (text_rect.Y *.5)
+  ))
+  --self.label_text.SetAlign(WIFALIGN_LEFT, WIFALIGN_BOTTOM)
+	self.label_text.SetColor(0xFFADA3FF)
 end
 
 function button:update()
@@ -188,7 +216,7 @@ function setPosSize(_sprite, x, y, width, height)
 end
 
 function panel:setup_nine_image_grid()
-  local fileImage = "../ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png"
+  local fileImage = "./content/ui/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png"
   
   local fx = nil
   self.panel_top_left = Sprite(script_dir() .. fileImage)

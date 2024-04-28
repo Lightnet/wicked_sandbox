@@ -17,17 +17,32 @@ runProcess(function()
   -- set new render
   application.SetActivePath(path)
   --setup buttons
+  
+  local screen_width =  application.GetCanvas().GetLogicalWidth()
+  local screen_height =  application.GetCanvas().GetLogicalHeight()
+  local panel = ui.panel:new()
+  local s_x = screen_width * .5 - 200 * .5
+  local s_y = screen_height * .5 - 200 * .5
+  panel:setup(path,s_x,s_y,200,200)
+
+  
+  local menu_x = screen_width * .5 - 128 * 0.5
+  local menu_y = screen_height *.5 - 32 * 3
+
   local btn_play = ui.button:new()
-  btn_play:setup(path,0,0,128,32)
+  btn_play:setup(path,menu_x,menu_y+32*1,128,32)
+  btn_play:text(" Play ")
   btn_play:func(function()
     dofile(script_dir() .. "game.lua")
   end)
 
   local btn_settings = ui.button:new()
-  btn_settings:setup(path,0,0+32,128,32)
+  btn_settings:setup(path,menu_x,menu_y+32*2,128,32)
+  btn_settings:text(" Settings ")
 
   local btn_quit = ui.button:new()
-  btn_quit:setup(path,0,0+32*2,128,32)
+  btn_quit:setup(path,menu_x,menu_y+32*3,128,32)
+  btn_quit:text(" Quit ")
 
   btn_quit:func(function()
     application.Exit()
