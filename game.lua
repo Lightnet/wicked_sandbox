@@ -14,6 +14,8 @@ SetProfilerEnabled(false) -- have a bit more screen space
 -- backlog_post("///foo: ",foo);
 -- backlog_post("/////////////////////////////////////");
 
+backlog_post("/// global gameData:", gameData)
+
 local scene = GetScene()
 
 function InfoText(path)
@@ -34,7 +36,8 @@ end
 
 --display font text
 function ph_spawn_cube_camera(_scene)
-  LoadModel(script_dir() .. "content/level.wiscene")
+  LoadModel(script_dir() .. "./content/scenes/level.wiscene")
+  --LoadModel("./content/scenes/level.wiscene")
   local cam_entity = _scene.Entity_FindByName("camera") -- query the camera object by name
   --cam_component = scene.Component_GetCamera(cam_entity)
   local transform = _scene.Component_GetTransform(cam_entity) -- get camera's transform

@@ -4,6 +4,8 @@ package.path = package.path .. ";!\\content\\scripts\\?.lua"
 local ui = require 'content/scripts/ui'
 local scene = GetScene()
 
+gameData = "Hello World mainmenu!"--testing...
+
 runProcess(function()
   
   --get current render editor
@@ -17,6 +19,9 @@ runProcess(function()
   --setup buttons
   local btn_play = ui.button:new()
   btn_play:setup(path,0,0,128,32)
+  btn_play:func(function()
+    dofile(script_dir() .. "game.lua")
+  end)
 
   local btn_settings = ui.button:new()
   btn_settings:setup(path,0,0+32,128,32)
