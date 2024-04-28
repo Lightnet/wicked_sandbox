@@ -53,3 +53,10 @@
 # Links:
  * https://github.com/turanszkij/WickedEngine
 
+# Credits:
+ * https://kenney.nl/assets
+   * ui
+   * sound
+   * 3d model
+
+ Assets files are on are free. Note there will be mixed with other files.

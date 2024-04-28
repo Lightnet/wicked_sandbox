@@ -5,7 +5,8 @@
 #  Wicked engine lua features disable:
  - print
 
- require > dofile
+ -require
+ -dofile wicked engine api
 
 foo.lua
 ```
@@ -18,6 +19,11 @@ dofile 'content/scripts/foo.lua'
 backlog_post("///test: ",test); --from loaded variable
 ```
 
+# script component:
+ -once trigger
+ -- possible to loop
+ -play loop
+ -- not possible for loop it already looping
 
 
 # Lua Scripting guide:
