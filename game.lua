@@ -18,6 +18,7 @@ backlog_post("/// global gameData:", gameData)
 
 local scene = GetScene()
 
+--display font text
 function InfoText(path)
   local help_text = ""
   help_text = help_text .. "Wicked Engine game script\n"
@@ -34,7 +35,7 @@ function InfoText(path)
 	path.AddFont(font)
 end
 
---display font text
+--spawn prefab and assign camera
 function ph_spawn_cube_camera(_scene)
   LoadModel(script_dir() .. "./content/scenes/level.wiscene")
   --LoadModel("./content/scenes/level.wiscene")

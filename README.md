@@ -19,6 +19,17 @@
 
   To build minecraft theme block world. To create block and delete scene build test.
 
+# Assets file:
+  If you use Godot Engine. It has it node tree components types. It save it own format for engine to save, edit and load scene. Like unity, unreal engine and other for game engine that easy to read and load into the world engine.
+
+  The Wicked Engine Editor can create entity, components and script is save to file for engine to load. It depend what type of entity is scene, character, map and so on.
+```
+'filename'.wiscene
+```
+  The file extension wiscene is stand alone assets as does not link to other files in the assets. The reason is that Wicked engine convert it to wiscene for engine to load quickly.
+ 
+ Once the script is load into into the component does not load from path but in 'filename'.wiscene. After testing it. It does not update the changes.
+
 
 # Layout:
 ```
